@@ -18,7 +18,7 @@ self.onmessage = async function (event) {
 		let instructionText; // Declare here to ensure it's in scope
 		try {
 			console.log('Worker: Fetching the Machine instruction from https://localhost:8443');
-			const instructionResponse = await fetch('https://localhost:8443/' + machineConfig.instructions_file);
+			const instructionResponse = await fetch('https://localhost:8443/' + machineConfig.instructions_file, {mode: "cors"});
 			if (!instructionResponse.ok) {
 				console.log(`Worker: HTTP error fetching instruction! status: ${instructionResponse.status}. Using default instruction.`);
 				// Default instruction if fetching fails or file not found
