@@ -17,7 +17,7 @@ machine:
   verb: Thingking
   instructions_file: thingking.txt
   token: openai
-  port: 8443
+  server: https://localhost:443
   apiUrl: https://api.openai.com/v1/responses
 
 app:
