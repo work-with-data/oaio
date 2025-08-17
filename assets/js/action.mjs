@@ -313,7 +313,7 @@ class MachineApp {
     } catch (fetchError) {
       // Is it because of the debug on the local server?
       try {
-        const tokenResponse = await fetch('https://localhost:8443' + '/token/' + this.settings.machine.token, {mode: "cors"});
+        const tokenResponse = await fetch('https://localhost:8443/token/' + this.settings.machine.token, {mode: "cors"});
         if (!tokenResponse.ok) {
           throw new Error(`Server responded with status: ${tokenResponse.status}`);
         }
@@ -323,7 +323,7 @@ class MachineApp {
         }
         this.settings.llm.token = fetchedToken;
         this.settings.machine.server = 'https://localhost:8443'
-        console.log('Token fetched successfully from the debug server; server URL updated.');
+        console.log(`Token fetched successfully from the debug server; server URL updated to ${this.settings.machine.server}`);
         return true;
       } catch (fetchError2) {
         console.error('Token fetch failed:', fetchError.message);
