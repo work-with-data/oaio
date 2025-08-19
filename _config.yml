@@ -19,6 +19,7 @@ machine:
   token: openai
   server: https://localhost:443
   apiUrl: https://api.openai.com/v1/responses
+  fallback_llm: o4-mini
 
 app:
   worker_name: oaioapi.js
